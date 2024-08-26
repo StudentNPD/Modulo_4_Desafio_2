@@ -1,16 +1,74 @@
-class player:
+class Personaje():
+    
+    def __init__(self, nombre:str):
+        self.nombre = nombre
+        self.nivel = 1 
+        self.experiencia = 0
 
-    def __init__(self):
-
-        self.name = ""
-        self.lvl = 1
-        self.exp = 0
-
-    def create_hero(self):
-        hero_name = input("Ingresa nombre de tu personaje:\n>  ").capitalize()
-        self.name = hero_name
-
-    def muestra_estado(self):
-        print(
-            f"\nEstado del personaje:\nNombre: {self.name}\nNivel: {self.lvl}\nExperiencia: {self.exp}"
-        )
+    def __lt__(self, other):
+        return self.nivel < other.nivel
+    
+    def __gt__(self, other):
+        return self.nivel > other.nivel
+    
+    def __eq__(self, other): 
+        return self.nivel == other.nivel
+    
+    
+    def mostrar_probabilidad(self,other):
+        if self < other:
+            return 0.33
+        elif self > other:
+            return 0.66
+        else: 
+            return 0.5
+        
+    @property    
+    def estado(self):
+        return f"""
+nombre: {self.nombre}
+nivel: {self.nivel}
+experiencia: {self.experiencia}"""    
+        
+    @estado.setter
+    def estado(self, exp:int):
+        if self.nivel==1 and exp<0 and (self.experiencia + exp)<0:
+            self.nivel=1 
+            self.experiencia=0    
+        elif
+        #nuevo_nivel=0
+        #nueva_experiencia=0
+        ##print(exp)
+        #temp_exp = self.experiencia + exp
+        ##print(temp_exp )
+        #print(f"modulo:{temp_exp % 100}")
+        #print(f"entero:{temp_exp // 100}")
+        #nuevo_nivel+=(temp_exp // 100)
+        #print(nuevo_nivel)
+        ##self.nivel +=(temp_exp // 100)
+        #if nuevo_nivel<0:
+        #    self.nivel=1 
+        #    self.experiencia=0
+        #else:
+        #    self.nivel+= nuevo_nivel 
+        #    nueva_experiencia +=  (temp_exp % 100)   
+        #    self.experiencia += nueva_experiencia
+            
+        ##nueva_experiencia +=  (temp_exp % 100)              
+        ###self.experiencia +=  (temp_exp % 100)
+        ##print(nueva_experiencia)
+        ##if self.nivel>=1 and self.experiencia<0:
+        ##    self.experiencia=0
+        ##else:
+        ##    self.experiencia += nueva_experiencia
+        
+    @staticmethod  
+    def mostrar_opciones(probabilidad_de_ganar):
+        return int(input(f"""
+Con tu nivel actual, tienes {probabilidad_de_ganar * 100}% de probabilidades de ganarle al Orco.                    
+Si ganas, ganarás 50 puntos de experiencia y el orco perderá 30.
+Si pierdes, perderás 30 puntos de experiencia y el orco ganará 50. 
+¿Qué deseas hacer?
+1. Atacar
+2. Huir                
+"""))
