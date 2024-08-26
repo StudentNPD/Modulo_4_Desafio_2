@@ -15,3 +15,5 @@ print(
     Tienen otras costumbres y malos hábitos, han venido a contaminar nuestro reino con las impurezas de su mundo..."
 )
 
+hero.mostrar_estado()
+
