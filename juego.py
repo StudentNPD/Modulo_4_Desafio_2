@@ -10,10 +10,16 @@ print("\n \n")
 hero = personaje.player()
 hero.create_hero()
 
+
 print(
     f"\nBienvenido {hero.name}, ha comenzado la gran purga de orcos a comenzado, son una terrible invasión... 
     Tienen otras costumbres y malos hábitos, han venido a contaminar nuestro reino con las impurezas de su mundo...\n"
 )
 
 hero.mostrar_estado()
+
+
+print("¡Oh no!, ¡Ha aparecido un Orco!")
+
+orco = Personaje("orco")
 
