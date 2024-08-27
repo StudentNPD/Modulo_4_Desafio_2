@@ -32,36 +32,26 @@ experiencia: {self.experiencia}"""
         
     @estado.setter
     def estado(self, exp:int):
-        if self.nivel==1 and exp<0 and (self.experiencia + exp)<0:
+        temp_exp = self.experiencia + exp
+        if self.nivel==1 and exp<0 and (temp_exp)<0:
+            print("1")
             self.nivel=1 
             self.experiencia=0    
-        elif
-        #nuevo_nivel=0
-        #nueva_experiencia=0
-        ##print(exp)
-        #temp_exp = self.experiencia + exp
-        ##print(temp_exp )
-        #print(f"modulo:{temp_exp % 100}")
-        #print(f"entero:{temp_exp // 100}")
-        #nuevo_nivel+=(temp_exp // 100)
-        #print(nuevo_nivel)
-        ##self.nivel +=(temp_exp // 100)
-        #if nuevo_nivel<0:
-        #    self.nivel=1 
-        #    self.experiencia=0
-        #else:
-        #    self.nivel+= nuevo_nivel 
-        #    nueva_experiencia +=  (temp_exp % 100)   
-        #    self.experiencia += nueva_experiencia
-            
-        ##nueva_experiencia +=  (temp_exp % 100)              
-        ###self.experiencia +=  (temp_exp % 100)
-        ##print(nueva_experiencia)
-        ##if self.nivel>=1 and self.experiencia<0:
-        ##    self.experiencia=0
-        ##else:
-        ##    self.experiencia += nueva_experiencia
-        
+        elif self.nivel>=1 and exp>=0 and (temp_exp)<100:
+            print("2")
+            #self.nivel=1 
+            self.experiencia=self.experiencia + exp
+        elif self.nivel>=1 and exp>=0 and (temp_exp)>=100:
+            print("3")
+            self.nivel+=1
+            print(temp_exp)
+            self.experiencia+=(temp_exp - 100 ) 
+        if self.nivel==1 and exp<0 and (temp_exp)>0:
+            print("4")
+            #self.nivel=1 
+            self.experiencia=temp_exp
+
+
     @staticmethod  
     def mostrar_opciones(probabilidad_de_ganar):
         return int(input(f"""
