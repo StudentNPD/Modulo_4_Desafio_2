@@ -30,6 +30,7 @@ nombre: {self.nombre}
 nivel: {self.nivel}
 experiencia: {self.experiencia}"""    
         
+
     @estado.setter
     def estado(self, exp:int):
         temp_exp = self.experiencia + exp
@@ -44,13 +45,13 @@ experiencia: {self.experiencia}"""
         elif self.nivel>=1 and exp>=0 and (temp_exp)>=100:
             print("3")
             self.nivel+=1
-            print(temp_exp)
-            self.experiencia+=(temp_exp - 100 ) 
+            #print(temp_exp)
+            #print((temp_exp - 100 ) )
+            self.experiencia=(temp_exp - 100 ) 
         if self.nivel==1 and exp<0 and (temp_exp)>0:
             print("4")
             #self.nivel=1 
             self.experiencia=temp_exp
-
 
     @staticmethod  
     def mostrar_opciones(probabilidad_de_ganar):
