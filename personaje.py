@@ -26,9 +26,7 @@ class Personaje():
     @property    
     def estado(self):
         return f"""
-nombre: {self.nombre}
-nivel: {self.nivel}
-experiencia: {self.experiencia}"""    
+NOMBRE: {self.nombre}       NIVEL: {self.nivel}     EXP: {self.experiencia}"""    
         
 
     @estado.setter
