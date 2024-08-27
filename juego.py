@@ -31,20 +31,27 @@ import random
 nombre = input("""
 ¡Bienvenido a Gran Fantasía!
 
-Por favor indique nombre de su personaje:                      
+Por favor indique nombre de su personaje:\n>                      
     """)
 
 heroe = Personaje(nombre)
 
 print(heroe.estado)
 
-print("¡Oh no!, ¡Ha aparecido un Orco!")
+print("\n¡Oh no!, ¡Ha aparecido un Orco!")
 
 orco = Personaje("orco")
 
 probabilidad_de_ganar = heroe.mostrar_probabilidad(orco)
 
-opcion_orco = heroe.mostrar_opciones(probabilidad_de_ganar)
+while True:
+    try:
+        opcion_orco = int(heroe.mostrar_opciones(probabilidad_de_ganar))
+        if opcion_orco not in [1, 2]:
+            raise ValueError
+        break
+    except ValueError:
+        print("Por favor, ingrese solo 1 o 2.")
 
 
 while opcion_orco == 1:
@@ -67,7 +74,15 @@ while opcion_orco == 1:
         
     print(f"Estado del Heroe: {heroe.estado}")
     print(f"Estado del Orco: { orco.estado}")
-    opcion_orco = heroe.mostrar_opciones(probabilidad_de_ganar)
+
+    while True:
+        try:
+            opcion_orco = int(heroe.mostrar_opciones(probabilidad_de_ganar))
+            if opcion_orco not in [1, 2]:
+                raise ValueError
+            break
+        except ValueError:
+            print("Por favor, ingrese solo 1 o 2.")
 
 
 
