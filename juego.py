@@ -31,8 +31,8 @@ import random
 nombre = input("""
 ¡Bienvenido a Gran Fantasía!
 
-Por favor indique nombre de su personaje:\n>                      
-    """)
+Por favor indique nombre de su personaje:\n                      
+> """)
 
 heroe = Personaje(nombre)
 
